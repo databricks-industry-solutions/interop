@@ -460,8 +460,8 @@ disease_history_df=patient_history_df.select(disease_history_cols)
 
 # COMMAND ----------
 
-from databricks import feature_store
-fs = feature_store.FeatureStoreClient()
+from databricks.feature_store import FeatureStoreClient
+fs = FeatureStoreClient()
 
 # COMMAND ----------
 
@@ -485,9 +485,13 @@ fs = feature_store.FeatureStoreClient()
 
 # COMMAND ----------
 
-fs.drop_table("patients_feature_store.demographics_features")
-fs.drop_table("patients_feature_store.sdoh_features")
-fs.drop_table("patients_feature_store.disease_history_features")
+# Drop the feature store tables if they are already created
+
+for table in ["patients_feature_store.demographics_features", "patients_feature_store.sdoh_features", "patients_feature_store.disease_history_features"]:
+  try:
+    fs.drop_table(table)
+  except:
+    pass
 
 # COMMAND ----------
 
