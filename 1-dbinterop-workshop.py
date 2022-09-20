@@ -76,6 +76,10 @@ print(dbutils.fs.head(sample_bundle))
 
 # COMMAND ----------
 
+# MAGIC %sql drop database if exists cdm_dbinterop cascade;
+
+# COMMAND ----------
+
 # DBTITLE 1,patient dashboard 
 cdm_database='cdm_dbinterop' 
 person_dashboard = PersonDashboard.builder(from_=FhirBundles(BUNDLE_PATH,cdm_database=cdm_database,cdm_mapping_database=None))
@@ -85,7 +89,11 @@ person_dash_df.display()
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC In addition to tables formed based on clinical infomration, we also add two tables, `cohort` and `cohort_definition` tables to add created cohorts. See [The Book Of OHDSI](https://ohdsi.github.io/TheBookOfOhdsi/CommonDataModel.html#cdm-standardized-tables). We later add covid and admission cohorts to this shcema.
+# MAGIC In addition to tables formed based on clinical infomration, we also add two tables, `cohort` and `cohort_definition` tables to add created cohorts. See [The Book Of OHDSI](https://ohdsi.github.io/TheBookOfOhdsi/CommonDataModel.html#cdm-standardized-tables). We later add covid and admission cohorts to this schema.
+
+# COMMAND ----------
+
+sql(f'use {cdm_database}')
 
 # COMMAND ----------
 
@@ -116,7 +124,6 @@ person_dash_df.display()
 # COMMAND ----------
 
 # DBTITLE 1,Database Tables
-sql(f'use {cdm_database}')
 sql('show tables').display()
 
 # COMMAND ----------
