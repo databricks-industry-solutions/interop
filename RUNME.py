@@ -56,14 +56,19 @@ job_json = {
                     "notebook_path": f"02-interop-lakehouse-aa"
                 },
                 "task_key": "interop_02",
-                "description": ""
+                "description": "",
+                "depends_on": [
+                    {
+                        "task_key": "interop_01"
+                    }
+                ]
             }
         ],
         "job_clusters": [
             {
                 "job_cluster_key": "interop_cluster",
                 "new_cluster": {
-                    "spark_version": "10.5.x-cpu-ml-scala2.12",
+                    "spark_version": "11.2.x-cpu-ml-scala2.12",
                 "spark_conf": {
                     "spark.databricks.delta.formatCheck.enabled": "false"
                     },
