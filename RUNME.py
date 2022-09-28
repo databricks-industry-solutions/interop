@@ -44,9 +44,18 @@ job_json = {
                 "job_cluster_key": "interop_cluster",
                 "libraries": [],
                 "notebook_task": {
-                    "notebook_path": f"1-dbinterop-workshop"
+                    "notebook_path": f"01-interop-lakehouse-de"
                 },
                 "task_key": "interop_01",
+                "description": ""
+            },
+          {
+                "job_cluster_key": "interop_cluster",
+                "libraries": [],
+                "notebook_task": {
+                    "notebook_path": f"02-interop-lakehouse-aa"
+                },
+                "task_key": "interop_02",
                 "description": ""
             }
         ],
@@ -74,7 +83,3 @@ job_json = {
 dbutils.widgets.dropdown("run_job", "False", ["True", "False"])
 run_job = dbutils.widgets.get("run_job") == "True"
 NotebookSolutionCompanion().deploy_compute(job_json, run_job=run_job)
-
-# COMMAND ----------
-
-
