@@ -44,10 +44,24 @@ job_json = {
                 "job_cluster_key": "interop_cluster",
                 "libraries": [],
                 "notebook_task": {
+                    "notebook_path": f"00-README"
+                },
+                "task_key": "interop_00",
+                "description": ""
+            },
+          {
+                "job_cluster_key": "interop_cluster",
+                "libraries": [],
+                "notebook_task": {
                     "notebook_path": f"01-interop-lakehouse-de"
                 },
                 "task_key": "interop_01",
-                "description": ""
+                "description": "",
+                "depends_on": [
+                    {
+                        "task_key": "interop_00"
+                    }
+                ]
             },
           {
                 "job_cluster_key": "interop_cluster",
