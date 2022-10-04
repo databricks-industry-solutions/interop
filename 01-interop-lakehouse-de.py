@@ -16,7 +16,7 @@
 # COMMAND ----------
 
 # DBTITLE 1,Install dbignite using pip
-# MAGIC %pip install git+https://github.com/databrickslabs/dbignite.git
+# MAGIC %pip install https://hls-eng-data-public.s3.amazonaws.com/packages/dbignite-0.1.0-py2.py3-none-any.whl
 
 # COMMAND ----------
 
