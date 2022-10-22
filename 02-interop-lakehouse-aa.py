@@ -1,4 +1,9 @@
 # Databricks notebook source
+# MAGIC %md 
+# MAGIC You may find this series of notebooks at https://github.com/databricks-industry-solutions/interop.git. For more information about this solution accelerator, visit https://www.databricks.com/solutions/accelerators/genome-wide-association-studies.
+
+# COMMAND ----------
+
 # MAGIC %md-sandbox
 # MAGIC # Advanced Analytics: Covid Outcomes Analysis
 # MAGIC <img src="https://github.com/QuentinAmbard/databricks-demo/raw/main/hls/resources/dbinterop/hls-dbiginte-flow-5.png" width="700px"  style="float: right; margin-left: 10px" />

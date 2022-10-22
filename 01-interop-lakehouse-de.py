@@ -1,4 +1,9 @@
 # Databricks notebook source
+# MAGIC %md 
+# MAGIC You may find this series of notebooks at https://github.com/databricks-industry-solutions/interop.git. For more information about this solution accelerator, visit https://www.databricks.com/solutions/accelerators/genome-wide-association-studies.
+
+# COMMAND ----------
+
 # MAGIC %md
 # MAGIC ## 1. Data ingestion & interoperability: ingesting and processing FHIR bundles with dbignite
 # MAGIC 
