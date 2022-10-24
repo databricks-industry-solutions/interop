@@ -1,6 +1,6 @@
 # Databricks notebook source
 # MAGIC %md 
-# MAGIC You may find this series of notebooks at https://github.com/databricks-industry-solutions/interop.git. For more information about this solution accelerator, visit https://www.databricks.com/solutions/accelerators/genome-wide-association-studies.
+# MAGIC You may find this series of notebooks at https://github.com/databricks-industry-solutions/interop.git. 
 
 # COMMAND ----------
 
@@ -189,6 +189,9 @@ import mlflow
 import numpy as np
 import pandas as pd
 from sklearn.metrics.cluster import normalized_mutual_info_score
+useremail = dbutils.notebook.entry_point.getDbutils().notebook().getContext().userName().get().split('@')[0]
+experiment_name = f"/Users/{useremail}/interop_experiment"
+mlflow.set_experiment(experiment_name) 
 
 def get_normalized_mutual_info_score(df):
   cols=patient_covid_hist_pdf.columns

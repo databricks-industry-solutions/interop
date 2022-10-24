@@ -1,4 +1,9 @@
 # Databricks notebook source
+# MAGIC %md 
+# MAGIC You may find this series of notebooks at https://github.com/databricks-industry-solutions/interop.git. 
+
+# COMMAND ----------
+
 # MAGIC %md
 # MAGIC # Accelerating Interoperability With Databricks Lakehouse 
 # MAGIC ## From FHIR ingestion to patient outcomes analysis

@@ -1,6 +1,6 @@
 # Databricks notebook source
 # MAGIC %md 
-# MAGIC You may find this series of notebooks at https://github.com/databricks-industry-solutions/interop.git. For more information about this solution accelerator, visit https://www.databricks.com/solutions/accelerators/genome-wide-association-studies.
+# MAGIC You may find this series of notebooks at https://github.com/databricks-industry-solutions/interop.git. 
 
 # COMMAND ----------
 
