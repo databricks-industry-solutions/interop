@@ -189,8 +189,8 @@ import mlflow
 import numpy as np
 import pandas as pd
 from sklearn.metrics.cluster import normalized_mutual_info_score
-useremail = dbutils.notebook.entry_point.getDbutils().notebook().getContext().userName().get().split('@')[0]
-experiment_name = f"/Users/{useremail}/interop_experiment"
+username = dbutils.notebook.entry_point.getDbutils().notebook().getContext().userName().get()
+experiment_name = f"/Users/{username}/interop_experiment"
 mlflow.set_experiment(experiment_name) 
 
 def get_normalized_mutual_info_score(df):
