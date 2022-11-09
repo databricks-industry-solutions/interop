@@ -1,11 +1,7 @@
 # Databricks notebook source
-# MAGIC %md 
-# MAGIC You may find this series of notebooks at https://github.com/databricks-industry-solutions/interop.git. 
-
-# COMMAND ----------
-
 # MAGIC %md
 # MAGIC ## 1. Data ingestion & interoperability: ingesting and processing FHIR bundles with dbignite
+# MAGIC <img src="https://hls-eng-data-public.s3.amazonaws.com/img/FHIR-RA.png" width = 70%>
 # MAGIC 
 # MAGIC FHIR is a standard for health care data exchange, allowing entities to share data with interoperability.
 # MAGIC 
