@@ -20,14 +20,14 @@
 # MAGIC * **Data ingestion** (on the left)
 # MAGIC   * Simplify ingestion, from all kind of sources. As example, we'll use _[Databricks Labs `dbignite` library](https://github.com/databrickslabs/dbignite.git)_ to ingest FHIR bundle as tables ready to be queried in SQL in one line.
 # MAGIC   * Query and explore the data ingested
-# MAGIC   * Optionaly we can secure data access
+# MAGIC   * Optionally we can secure data access
 # MAGIC   
-# MAGIC * **Eploratory Analysis/Data Curation** (flow on the top)
+# MAGIC * **Exploratory Analysis/Data Curation** (flow on the top)
 # MAGIC   * Create cohorts
-# MAGIC   * Create a patient level data strucure (a patient dashboard) from the bundles
+# MAGIC   * Create a patient level data structure (a patient dashboard) from the bundles
 # MAGIC   * Investigate rate of hospital admissions among covid patients and explore correlations among different factors such as SDOH, disease history and hospital admission
 # MAGIC   
-# MAGIC * **Data Science / Advance Analystics** (bottom)
+# MAGIC * **Data Science / Advanced Analytics** (bottom)
 # MAGIC   * Create patient features 
 # MAGIC   * Create a training dataset to build a model predicting and analysing our cohort 
 # MAGIC   * Use SHAP for explaining the effect of different features on the outcome under study
