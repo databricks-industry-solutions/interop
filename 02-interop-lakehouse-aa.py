@@ -226,7 +226,7 @@ plot_pdf.style.background_gradient(cmap='Blues').format(precision=2)
 # MAGIC 
 # MAGIC As a next step, we'll train binary classifier to predict the outcome (`is_admitted`) based on the features provided in the training data.
 # MAGIC 
-# MAGIC This model will predict the likelyhood of behing admitted and will help us understanding which feature has the most impact for the model globally but also each patient.
+# MAGIC This model will predict the likelihood of being admitted and will help us understanding which feature has the most impact for the model globally but also each patient.
 # MAGIC 
 # MAGIC We'll use our previous cohort to run this analysis:
 

@@ -48,7 +48,7 @@ print(dbutils.fs.head(files[0].path))
 # MAGIC We can leverage dbignite library to load this data using the `PersonDashboard` API. This will:
 # MAGIC 
 # MAGIC 1. Extract resources from FHIR bundles and create a dataframe where rows correspond to each patient bundle and columns contain extracted resources
-# MAGIC 2. In addition, add corresponding tables - which have similar schemas to OMOP tabels - to our local database - (`print(dbName)`)
+# MAGIC 2. In addition, add corresponding tables - which have similar schemas to OMOP tables - to our local database - (`print(dbName)`)
 
 # COMMAND ----------
 
@@ -109,7 +109,7 @@ display(
 # MAGIC 
 # MAGIC Now that our data has been loaded, we can start running some exploration
 # MAGIC 
-# MAGIC #### Analyzing our patient informations
+# MAGIC #### Analyzing our patient information
 # MAGIC 
 # MAGIC The FHIR bundle have been extracted and the patient information can now be analyzed using SQL or any python library. 
 # MAGIC 
