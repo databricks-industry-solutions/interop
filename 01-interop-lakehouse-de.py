@@ -2,22 +2,22 @@
 # MAGIC %md
 # MAGIC ## 1. Data ingestion & interoperability: ingesting and processing FHIR bundles with dbignite
 # MAGIC <img src="https://hls-eng-data-public.s3.amazonaws.com/img/FHIR-RA.png" width = 70%>
-# MAGIC 
+# MAGIC
 # MAGIC FHIR is a standard for health care data exchange, allowing entities to share data with interoperability.
-# MAGIC 
+# MAGIC
 # MAGIC Analysing and loading FHIR bundle can be hard, especially at scale.
-# MAGIC 
+# MAGIC
 # MAGIC As part of Databricks project, we developed [`dbignite`](https://github.com/databrickslabs/dbignite.git) to simplify FHIR ingestion. Using the library, you can accelerate your time to insight by:
-# MAGIC 
+# MAGIC
 # MAGIC * Parsing and reading the FHIR bundle out of the box
 # MAGIC * Creating table for SQL usage (BI/reporting) on top of the incoming data
-# MAGIC 
+# MAGIC
 # MAGIC `dbignite` is available as a python wheel and can be installed as following:
 
 # COMMAND ----------
 
 # DBTITLE 1,Install dbignite using pip
-# MAGIC %pip install git+https://github.com/databrickslabs/dbignite.git
+# MAGIC %pip install git+https://github.com/databricks-industry-solutions/dbignite.git@aa853e2e2de487318d14683e56ce8e36dd0c4d24
 
 # COMMAND ----------
 
@@ -42,11 +42,11 @@ print(dbutils.fs.head(files[0].path))
 
 # MAGIC %md-sandbox
 # MAGIC ### 1.1 Load FHIR bundles into ready to query Delta Tables
-# MAGIC 
+# MAGIC
 # MAGIC <img src="https://github.com/QuentinAmbard/databricks-demo/raw/main/hls/resources/dbinterop/hls-dbiginte-flow-1.png" width="700px" style="float: right" />
-# MAGIC 
+# MAGIC
 # MAGIC We can leverage dbignite library to load this data using the `PersonDashboard` API. This will:
-# MAGIC 
+# MAGIC
 # MAGIC 1. Extract resources from FHIR bundles and create a dataframe where rows correspond to each patient bundle and columns contain extracted resources
 # MAGIC 2. In addition, add corresponding tables - which have similar schemas to OMOP tables - to our local database - (`print(dbName)`)
 
@@ -104,15 +104,15 @@ display(
 
 # MAGIC %md-sandbox
 # MAGIC ### 1.2 Exploring the FHIR data
-# MAGIC 
+# MAGIC
 # MAGIC <img src="https://github.com/QuentinAmbard/databricks-demo/raw/main/hls/resources/dbinterop/hls-dbiginte-flow-2.png" width="700px" style="float: right" />
-# MAGIC 
+# MAGIC
 # MAGIC Now that our data has been loaded, we can start running some exploration
-# MAGIC 
+# MAGIC
 # MAGIC #### Analyzing our patient information
-# MAGIC 
+# MAGIC
 # MAGIC The FHIR bundle have been extracted and the patient information can now be analyzed using SQL or any python library. 
-# MAGIC 
+# MAGIC
 # MAGIC Let's see what's under the `person` table and start running some analysis on top of our dataset..
 
 # COMMAND ----------
@@ -130,7 +130,7 @@ display(
 
 # MAGIC %md
 # MAGIC #### Patient Condition
-# MAGIC 
+# MAGIC
 # MAGIC The condition information are stored under the `condition` table
 
 # COMMAND ----------
@@ -155,7 +155,7 @@ px.bar(df, x="condition_status", y="count", color="gender_source_value", barmode
 
 # MAGIC %md
 # MAGIC #### Procedure Occurrence Table
-# MAGIC 
+# MAGIC
 # MAGIC Let's explore the `procedure_occurrence` extracted from the bundles
 
 # COMMAND ----------
@@ -184,15 +184,15 @@ px.pie(df, values='count', names='encounter_status', hole=.4)
 
 # MAGIC %md-sandbox
 # MAGIC ## 2 Security and governance with Unity Catalog
-# MAGIC 
+# MAGIC
 # MAGIC <img src="https://github.com/QuentinAmbard/databricks-demo/raw/main/hls/resources/dbinterop/hls-dbiginte-flow-3.png" width="700px" style="float: right; margin-left: 10px" />
-# MAGIC 
+# MAGIC
 # MAGIC Databricks Lakehouse add a layer of governance and security on all your resources.
-# MAGIC 
+# MAGIC
 # MAGIC We can choose to grant access to these resources to our Data Analysts so that they can have READ access only on these tables. This is done using standard SQL queries.
-# MAGIC 
+# MAGIC
 # MAGIC More advanced capabilities are available to support your sensitive use-cases:
-# MAGIC 
+# MAGIC
 # MAGIC * **Governance** and **traceability** with audit log (track who access what)
 # MAGIC * **Fine grain access** / row level security (mask column containing PII information to a group of users)
 # MAGIC * **Lineage** (track the downstream usage: who is using a given table and what are the impacts if you are to change it)
@@ -210,16 +210,16 @@ px.pie(df, values='count', names='encounter_status', hole=.4)
 # COMMAND ----------
 
 # MAGIC %md-sandbox
-# MAGIC 
+# MAGIC
 # MAGIC ## 3 Building and sharing visualization (BI/DW)
-# MAGIC 
+# MAGIC
 # MAGIC <img src="https://github.com/QuentinAmbard/databricks-demo/raw/main/hls/resources/dbinterop/hls-dbiginte-flow-4.png" width="700px"  style="float: right; margin-left: 10px" />
-# MAGIC 
-# MAGIC 
+# MAGIC
+# MAGIC
 # MAGIC The lakehouse provides traditional Data warehousing and BI within one single platform and one security layer.
-# MAGIC 
+# MAGIC
 # MAGIC Now that our data is ready, we can leverage Databricks SQL capabilities to build interactive dashboard and share analysis. 
-# MAGIC 
+# MAGIC
 # MAGIC Open the [DBSQL Patient Summary](https://e2-demo-field-eng.cloud.databricks.com/sql/dashboards/352c784e-c0e3-4f42-8a66-a4955b7ee5f8-patient-summary?o=1444828305810485) as example.
-# MAGIC 
+# MAGIC
 # MAGIC <img src="https://github.com/QuentinAmbard/databricks-demo/raw/main/hls/resources/dbinterop/hls-patient-dashboard.png" width="500"/>
